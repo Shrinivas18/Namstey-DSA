@@ -1,0 +1,47 @@
+🔹 1. If-Else Statements
+- Used for decision-making.
+
+if (condition) {
+  // code if true
+} else {
+  // code if false
+}
+
+🔹 2. Arrays
+- Collection of elements
+
+let arr = [1, 2, 3];
+arr.push(4); // Add at end
+arr.pop();   // Remove last
+arr.length;  // Array size
+
+🔹 3. Functions
+Reusable blocks of code
+
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3)); // 5
+
+🔹 4. Loops
+- For loop
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+- While loop
+
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+- Nested Loops
+
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    console.log(`i=${i}, j=${j}`);
+  }
+}
