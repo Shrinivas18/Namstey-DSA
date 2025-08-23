@@ -1,0 +1,203 @@
+# 📘 **Time & Space Complexity — DSA Notes (Day 2)**
+
+---
+
+## ⏱️ What is Time Complexity?
+
+Time Complexity tells us **how fast an algorithm runs** as the input size grows.
+
+> ❗ **Time Complexity ≠ Actual Runtime**
+> It’s about **growth rate**, not stopwatch time.
+
+---
+
+## ⚔️ Linear Search vs Binary Search
+
+### 🔍 **Linear Search**
+
+* ✅ Works on: **Unsorted Arrays**
+* 🧠 Best Case: Element at 1st index → `O(1)`
+* 🔁 Average Case: Element at n/2 → `O(n/2)`
+* ❌ Worst Case: Element not found → `O(n)`
+* ⏳ **Time Complexity:** `O(n)`
+
+---
+
+### 🧠 **Binary Search**
+
+* ✅ Works on: **Sorted Arrays**
+* 🧠 Best Case: Middle element → `O(1)`
+* 🔁 Avg/Worst Case: Divide by 2 each step → `O(log n)`
+* ⏳ **Time Complexity:** `O(log n)`
+
+> 🔎 For n = 100
+>
+> * Linear Search: 100 steps
+> * Binary Search: \~7 steps
+>   → Binary Search is **way more efficient** for large datasets!
+
+---
+
+## 📈 Big O Notation
+
+Used to express **worst-case** time complexity.
+
+| Big O      | Name         | Example Use                 |
+| ---------- | ------------ | --------------------------- |
+| O(1)       | Constant     | Accessing an array index    |
+| O(log n)   | Logarithmic  | Binary Search               |
+| O(n)       | Linear       | Linear Search               |
+| O(n log n) | Linearithmic | Merge Sort, Quick Sort      |
+| O(n²)      | Quadratic    | Nested Loops                |
+| O(n³)      | Cubic        | Triple Nested Loops         |
+| O(2ⁿ)      | Exponential  | Recursive Fibonacci         |
+| O(n!)      | Factorial    | Permutations (Backtracking) |
+
+---
+
+## 🧮 Code Examples of Time Complexities (in JavaScript-style syntax)
+
+---
+
+### ✅ **O(1) – Constant Time**
+
+```js
+let value = arr[5];  // Direct access
+```
+
+---
+
+### 🔁 **O(n) – Linear Time**
+
+```js
+for(let i = 0; i < n; i++) {
+    // do something
+}
+```
+
+---
+
+### 🔂 **O(log n) – Logarithmic Time** (Binary Search)
+
+```js
+function binarySearch(arr, key) {
+    let low = 0, high = arr.length - 1;
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+        if (arr[mid] === key) return mid;
+        else if (arr[mid] < key) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1;
+}
+```
+
+---
+
+### 🔁🔁 **O(n²) – Quadratic Time** (Nested Loop)
+
+```js
+for(let i = 0; i < n; i++) {
+    for(let j = 0; j < n; j++) {
+        // do something
+    }
+}
+```
+
+---
+
+### 🔁⏳ **O(n log n) – Linearithmic Time**
+
+```js
+for(let i = 0; i < n; i++) {
+    let temp = n;
+    while (temp > 1) {
+        temp = Math.floor(temp / 2);
+        // do something
+    }
+}
+```
+
+---
+
+### 🔁🔁🔁 **O(n³) – Cubic Time** (Triple Loop)
+
+```js
+for(let i = 0; i < n; i++) {
+    for(let j = 0; j < n; j++) {
+        for(let k = 0; k < n; k++) {
+            // do something
+        }
+    }
+}
+```
+
+---
+
+### 🧬 **O(2ⁿ) – Exponential Time** (Recursive Fibonacci)
+
+```js
+function fib(n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+```
+
+---
+
+### 🎲 **O(n!) – Factorial Time** (Permutations)
+
+```js
+function permute(str, l, r) {
+    if (l === r) {
+        console.log(str);
+    } else {
+        for (let i = l; i <= r; i++) {
+            [str[l], str[i]] = [str[i], str[l]]; // swap
+            permute(str, l + 1, r);
+            [str[l], str[i]] = [str[i], str[l]]; // backtrack
+        }
+    }
+}
+```
+
+---
+
+## 💾 What is Space Complexity?
+
+Space Complexity = **Extra memory** used by the algorithm.
+
+---
+
+### 🧠 Examples:
+
+| Code Action               | Space Complexity |
+| ------------------------- | ---------------- |
+| Access 5th element        | O(1)             |
+| Variable for max value    | O(1)             |
+| New array of size `n`     | O(n)             |
+| 2D Matrix of size `n x n` | O(n²)            |
+
+---
+
+## 📊 Time Complexity Chart Summary
+
+```
+O(1)     → 🟢 Excellent
+O(log n) → 🟢 Great
+O(n)     → 🟡 Okay
+O(n log n) → 🟡 Efficient for sorting
+O(n²)    → 🔴 Avoid if n is large
+O(n³)    → 🔴 Inefficient
+O(2ⁿ), O(n!) → ❌ Brutal — only for small inputs
+```
+
+---
+
+## 🎯 Key Takeaway
+
+> Choose the right algorithm by analyzing its time & space complexity.
+> **Efficient logic beats brute force!**
+
+---
+
