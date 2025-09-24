@@ -1,0 +1,61 @@
+## 🔁 What is Recursion?
+
+A function that **calls itself** to solve smaller instances of the same problem.
+
+---
+
+## 🔧 Key Components:
+
+1. **Base Case** – when to stop recursion
+2. **Recursive Case** – function calls itself with modified input
+
+---
+
+## 🧠 How It Works:
+
+Each call is pushed onto the **call stack** → once base case is hit, stack unwinds.
+
+---
+
+## 📦 Example (Factorial):
+
+```js
+function factorial(n) {
+  if (n === 0) return 1; // Base case
+  return n * factorial(n - 1); // Recursive case
+}
+```
+
+---
+
+## ⚠️ Common Mistakes:
+
+- Missing base case → causes **infinite recursion**
+- Not reducing the problem → leads to **stack overflow**
+
+---
+
+## ✅ When to Use:
+
+- Problems that can be broken into smaller subproblems
+- Examples:
+
+  - Factorial, Fibonacci
+  - Tree/Graph traversal (DFS)
+  - Backtracking (e.g., N-Queens, permutations)
+
+---
+
+## 🔄 Recursion vs Iteration:
+
+- **Recursion** is elegant, closer to problem definition
+- **Iteration** is often more memory-efficient
+
+---
+
+## 🔧 Tip:
+
+If recursion is too deep (stack overflow), consider:
+
+- Using iteration
+- Applying **tail recursion** (in languages that optimize it)
