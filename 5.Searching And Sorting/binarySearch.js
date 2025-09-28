@@ -9,16 +9,36 @@ Binary Search
         - Repeat until found or range is empty.
 */
 
-var binarySearch = function (arr, start, end, target) {
-  if (arr.length === 0) return -1;
+// Using Iterative Method
+var binarySearch = function(nums, target){
+    if(nums.length === 0) return -1;
+
+    let left = 0;
+    let right = nums.length - 1;
+    
+    while(right >= left){
+        let middle = Math.floor((left + right) / 2);
+        if(nums[middle] === target) return middle;
+
+        if(nums[middle] > target)
+            right = middle - 1;
+        else
+            left = middle + 1;
+    }
+
+    return -1;
+}
+
+// Using Recursion Method
+var binarySearch = function (nums, start, end, target) {
+  if (nums.length === 0) return -1;
   if (start > end) return -1;
 
   let mid = Math.floor((start + end) / 2);
 
-  if (arr[mid] === target) return mid;
-  else if (arr[mid] > target)
-    return binarySearch(arr, start, mid - 1, target);
+  if (nums[mid] === target) return mid;
+  else if (nums[mid] > target)
+    return binarySearch(nums, start, mid - 1, target);
   else
-    return binarySearch(arr, mid + 1, end, target);
+    return binarySearch(nums, mid + 1, end, target);
 };
-
