@@ -16,11 +16,13 @@ move all disks to the destination peg with these rules:
 */
 
 var towerOfHanoi = function (n, A, B, C) {
-    if (n === 1)
-        console.log(`Move 1st disk from ${A} -> ${B}`)
-        return
-    
-    towerOfHanoi(n - 1, A, C, B);
-    console.log(`Move ${n}th disk from ${A} -> ${C}`)
-    towerOfHanoi(n-1, B, A, C)
-}
+  if (n === 1) {
+    console.log(`Move 1st disk from ${A} -> ${B}`);
+    return;
+  }
+
+  towerOfHanoi(n - 1, A, C, B);
+  console.log(`Move ${n}th disk from ${A} -> ${C}`);
+  towerOfHanoi(n - 1, B, A, C);
+};
+console.log(towerOfHanoi(3, A, B, C));
